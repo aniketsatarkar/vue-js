@@ -6,7 +6,7 @@
       </div>
       <input
         class="form-control col-12"
-        v-model="newItem"
+        v-model="$store.state.newItem"
         type="search"
         placeholder="Add a Todo Item!"
         v-on:keyup.enter="addItem"
@@ -30,27 +30,33 @@
           </li>
         </ul>
       </div>
-      <div class="d-flex justify-content-center mt-5 text-info" v-else>
-        <span>No items in the list, plaese add few!</span>
+      <div class="d-flex justify-content-center mt-3 text-info" v-else>
+        <span>No items in the list!</span>
       </div>
     </div>
   </div>
 </template>
 <script>
+
+import { mapGetters } from 'vuex'
+
 export default {
   name: "Todo",
-  props: {
-    items: Array,
-    newItem: String
-  },
+  props: {},
   methods: {
     addItem: function() {
+      
+      var titleStr = this.$store.state.newItem.trim();
+
+      if(titleStr.length == 0)
+        return false;
+
       this.items.push({
-        title: this.newItem,
+        title: titleStr,
         isCompleted: false
       });
 
-      this.newItem = "";
+      this.$store.state.newItem = "";
       this.$forceUpdate();
     },
     remove: function(itemIndex) {
@@ -61,6 +67,12 @@ export default {
       this.items[itemIndex].isCompleted = !this.items[itemIndex].isCompleted;
       this.$forceUpdate();
     }
+  },
+  computed :{
+    ...mapGetters([
+      'items',
+      'newItem',
+    ])
   }
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <todo v-bind:items="[]"></todo>
+    <todo></todo>
 </template>
 
 <script>
