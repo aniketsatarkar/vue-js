@@ -5,6 +5,7 @@ import Home from "./views/Home.vue";
 Vue.use(Router);
 
 export default new Router({
+  mode: "history",
   routes: [
     {
       path: "/",
@@ -26,7 +27,7 @@ export default new Router({
       path: "/todo",
       name: "todo",
       component: () => import("./views/Todo.vue"),
-      meta : {
+      meta: {
         title: "Todo | vue.js"
       }
     }
