@@ -1,5 +1,8 @@
 <template>
+  <div>
     <todo></todo>
+    <vue-headful title="Todo"/>
+  </div>
 </template>
 
 <script>

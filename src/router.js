@@ -9,17 +9,26 @@ export default new Router({
     {
       path: "/",
       name: "home",
-      component: Home
+      component: Home,
+      meta: {
+        title: "Home | vue-js"
+      }
     },
     {
       path: "/about",
       name: "about",
-      component: () => import("./views/About.vue")
+      component: () => import("./views/About.vue"),
+      meta: {
+        title: "About | vue.js"
+      }
     },
     {
       path: "/todo",
       name: "todo",
-      component: () => import("./views/Todo.vue")
+      component: () => import("./views/Todo.vue"),
+      meta : {
+        title: "Todo | vue.js"
+      }
     }
   ]
 });
