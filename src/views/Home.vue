@@ -6,15 +6,9 @@
 </template>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from "@/components/HelloWorld.vue";
-// import Todo from "@/components/Todo.vue";
-
 export default {
   name: "home",
   components: {
-    // HelloWorld
-    // Todo
   }
 };
 </script>
