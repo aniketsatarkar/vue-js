@@ -6,7 +6,7 @@ import NotFound from "./views/NotFound.vue";
 Vue.use(Router);
 
 export default new Router({
-  mode: "history",
+  // mode: "history",
   routes: [
     { path: "/404", component: NotFound },
     { path: "*", redirect: "/404" },

@@ -18,15 +18,17 @@
           <li
             v-bind:key="index"
             v-for="(item, index) in items"
-            v-bind:class="{ checked : item.isCompleted }"
+            v-bind:class="{ checked: item.isCompleted }"
             v-on:click.prevent="markComplete(index)"
           >
-            {{ index + 1 + '.' }} {{ item.title }}
+            {{ index + 1 + "." }} {{ item.title }}
             <button
               class="close"
               v-on:click.stop="remove(index)"
               style="z-index: 999"
-            >X</button>
+            >
+              X
+            </button>
           </li>
         </ul>
       </div>
@@ -37,19 +39,16 @@
   </div>
 </template>
 <script>
-
-import { mapGetters } from 'vuex'
+import { mapGetters } from "vuex";
 
 export default {
   name: "Todo",
   props: {},
   methods: {
     addItem: function() {
-      
       var titleStr = this.$store.state.newItem.trim();
 
-      if(titleStr.length == 0)
-        return false;
+      if (titleStr.length == 0) return false;
 
       this.items.push({
         title: titleStr,
@@ -68,11 +67,8 @@ export default {
       this.$forceUpdate();
     }
   },
-  computed :{
-    ...mapGetters([
-      'items',
-      'newItem',
-    ])
+  computed: {
+    ...mapGetters(["items", "newItem"])
   }
 };
 </script>
